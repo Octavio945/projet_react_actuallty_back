@@ -39,9 +39,9 @@ exports.deletePost = async (req, res) => {
 
 
 exports.likePost = async (req, res) => {
-  const userId = req.user.id;  // Récupère l'ID de l'utilisateur à partir du JWT
+  const userId = req.user.userId;  // Récupère l'ID de l'utilisateur à partir du JWT
   const { postId } = req.params;
-
+  
   try {
     // Vérifier si l'utilisateur a déjà liké ce post
     const existingLike = await Like.findOne({ where: { UserId: userId, PostId: postId } });
